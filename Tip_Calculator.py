@@ -1,55 +1,22 @@
-#Data Types
+#If the bill was $150.00, split between 5 people, with 12% tip. 
 
-#String
+#Each person should pay (150.00 / 5) * 1.12 = 33.6
+#Format the result to 2 decimal places = 33.60
 
-print("Hello"[4])# prints the 4th letter in the string "subscripting"
+#Tip: There are 2 ways to round a number. You might have to do some Googling to solve this.💪
 
-#integer
+#Write your code below this line 👇
 
-print(123 + 345)# prints the sum of the two numbers
+print("******Welcome to the tip calculator!\n******")
+bill = input("What was the total bill? $")
+tip = input("How much tip would you like to give? 10, 12, or 15? ")
+people = input("How many people to split the bill? ")
+tip_percent = int(tip)/100
+calc_tip = float(bill) * float(tip_percent)
+total_with_tip = float(bill) + calc_tip
+div_by_people = total_with_tip/int(people)
+money = "{:.2f}".format(div_by_people)
+# money = round(div_by_people, 2)
+ans = f"Each person should pay: ${money}"
 
-#float
-
-print(3.14159)# prints the float
-
-#Boolean
-
-True# prints True
-
-False# prints False
-
-
-#Type Error`
-# print("Hello" + 5)# this will give a type error because you can't add a string and an integer`
-
-type()# this will tell you the type of data type
-
-#Type Conversion
-
-str()# converts to a string
-
-int()# converts to an integer
-
-float()# converts to a float
-
-bool()# converts to a boolean
-
-#Mathematical Operations
-
-# + addition
-
-# - subtraction
-
-# * multiplication
-
-# / division
-
-# ** exponent
-
-# // floor division
-
-# % modulo
-
-# PEMDAS
-
-# () parenthesis
+print(ans)

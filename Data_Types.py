@@ -56,14 +56,27 @@ print(result)# this will print the result
 
 # * multiplication
 
-# / division
+# / division (float)
 
 # ** exponent
 
-# // floor division
+# // floor division (rounds down) integer division
 
 # % modulo
 
 # PEMDAS
 
 # () parenthesis
+
+#f-strings
+f"Hello {name}"# this will print Hello and the name variable like jquery
+
+#Example of f-strings
+
+score = 0
+
+height = 1.8
+
+isWinning = True
+
+print(f"your score is {score}, your height is {height}, you are winning is {isWinning}")# this will print your score is 0, your height is 1.8, you are winning is True

@@ -64,11 +64,14 @@ print(result)# this will print the result
 
 # % modulo
 
+#The modulo is written as a percentage sign (%) in Python. It gives you the remainder after a division.
+
 # PEMDAS
 
 # () parenthesis
 
 #f-strings
+name = "John"
 f"Hello {name}"# this will print Hello and the name variable like jquery
 
 #Example of f-strings

@@ -44,11 +44,11 @@ print("Your mission is to slay the dragon or flee for your life.")
 
 #Write your code below this line 👇
 
-level_1 = input("Your traveling to the land of dragons, your first encounter is a baby dragon, type 'fight' to slay the dragon or 'flee' to run\n")
+level_1 = input("Your traveling to the land of dragons, your first encounter is a baby dragon, type 'fight' to slay the dragon or 'flee' to run\n").lower()
 if level_1 == "fight":
-  level_2 = input("You gained experience stenght from killing the baby dragon, its mother is furious, 'flee' or 'fight'\n")
+  level_2 = input("You gained experience stenght from killing the baby dragon, its mother is furious, 'flee' or 'fight'\n").lower()
   if level_2 == "flee":
-    level_3 = input("You gained agility from fleeing, you now come to a castle with three doors, each with a dragon or gold behind it, choose a door, 'red', 'blue', 'yellow'\n")
+    level_3 = input("You gained agility from fleeing, you now come to a castle with three doors, each with a dragon or gold behind it, choose a door, 'red', 'blue', 'yellow'\n").lower()
     if level_3 == "red" or level_3 =="blue":
         print("YOu where killed by a dragon, Game Over")
         print('''        ...

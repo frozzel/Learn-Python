@@ -10,3 +10,4 @@ for i in student_scores:
         max = i
 
 print(f"The highest score in the class is: {max}")
+

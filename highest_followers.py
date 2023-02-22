@@ -22,9 +22,9 @@ def play_game():
   B = random_data()
   winning = True
   while winning:
-    print(f"Compare A: {A[0]}, a {A[1]}, from {A[2]}. {A[3]} million followers")
+    print(f"Compare A: {A[0]}, a {A[1]}, from {A[2]}.")
     print(vs)
-    print(f"Compare B: {B[0]}, a {B[1]}, from {B[2]}. {B[3]} million followers")
+    print(f"Compare B: {B[0]}, a {B[1]}, from {B[2]}.")
     test = input("Who has more followers? Type 'A' or 'B': ").upper()
     if test == "A":
       comp1 = A[3]
@@ -52,6 +52,7 @@ def play_game():
 play_game()
 run = input("Play Again Y/N  ").lower()
 if run == 'y':
+  clear()
   play_game()
 else:
   print("Thanks for Playing Good Bye!")

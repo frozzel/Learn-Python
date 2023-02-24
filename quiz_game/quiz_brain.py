@@ -12,7 +12,17 @@ class QuizBrain:
     def next_quest(self):
         current_question = self.question_list[self.question_number]
         self.question_number += 1
-        input(f"Q{self.question_number}: {current_question.text} (True/False)?:  ").capitalize()
+        user_ans = input(f"Q{self.question_number}: {current_question.text} (True/False)?:  ").capitalize()
+        self.check_answer(user_ans, current_question.answer)
        
+    def check_answer(self, user_ans, correct):
+        if user_ans == correct:
+            self.score += 1
+            print("You got it right!")
+        else:
+            print("That's Wrong")
+        print(f"The correct answer was: {correct}.")
+        print(f"Your current score is: {self.score}/{self.question_number}")
+        print("\n")
                 
             

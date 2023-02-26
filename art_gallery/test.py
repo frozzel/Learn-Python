@@ -72,8 +72,7 @@ def rando_move(turtle):
 # rando_move(tommy)
 
 def draw_spirograph(size_gap):
-    
-
+    timmy.hideturtle()
     timmy.speed("fastest")
     for _  in range(int(360 / size_gap)):
         timmy.color(rando_color())

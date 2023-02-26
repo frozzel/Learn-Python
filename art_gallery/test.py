@@ -71,7 +71,7 @@ def rando_move(turtle):
 # rando_move(timmy)
 # rando_move(tommy)
 
-def draw_spirograph( size_gap):
+def draw_spirograph(size_gap):
     
 
     timmy.speed("fastest")

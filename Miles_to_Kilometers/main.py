@@ -6,18 +6,14 @@ window.title("Miles to Km Converter")
 window.minsize(width=200, height=50)
 window.config(padx=20, pady=20)
 
-##### Functions ###########
+############ Functions ###########
 def calculate():
     num = float(input.get())
     km = round(num * 1.609344)
     conv_label.config(text=km)
 
-
-
-
-###########################
+##################################
 FONT = ("Arial", 14)
-
 
 input = Entry(width=7)
 input.insert(END, string=0)

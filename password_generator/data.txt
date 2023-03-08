@@ -1,0 +1,3 @@
+amazon | ballsUp@me.com | root1234 
+apple | ballsUp@me.com | root1234 
+dfasdfsdf | ballsUp@me.com | asdfasdfad 

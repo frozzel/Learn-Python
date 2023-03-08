@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import random
 import pyperclip
+import json
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
@@ -24,19 +25,54 @@ def generate():
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def save_file():
-    web = website_input.get()
+    website = website_input.get()
     email = email_input.get()
     password = pass_input.get()
-    if len(web) == 0 or len(email) == 0 or len(password) == 0:
+    new_data = {
+        website: {  
+            "email": email,
+            "password": password,
+        }
+    }
+    
+    if len(website) == 0 or len(email) == 0 or len(password) == 0:
         messagebox.showwarning(title="Oops", message="Please don't leave any fields empty!")
     else:
-        is_ok = messagebox.askokcancel(title=web, message=f"These are the details entered:\nEmail: {email} \nPassword: {password}\nIs it ok to save?")
-        if is_ok:
-                with open("data.txt", "a") as file:
-                    file.write(f"{web} | {email} | {password} \n")
+        try:
+            with open("data.json", "r") as file:
+                data = json.load(file)
+        except FileNotFoundError:
+            with open("data.json", "w") as file:
+                json.dump(new_data, file, indent=4)
                 website_input.delete(0, END)
                 pass_input.delete(0, END)
-    
+        else:
+            data.update(new_data)
+            with open("data.json", "w") as file:
+                json.dump(data, file, indent=4)
+        finally:
+                website_input.delete(0, END)
+                pass_input.delete(0, END)
+
+# ---------------------------- SEARCH WEBSITES ------------------------------- #
+
+def search():
+    website = website_input.get()
+    try:
+        with open("data.json", "r") as file:
+            data = json.load(file)
+            email = data[website]["email"]
+            password = data[website]["password"]       
+    except FileNotFoundError:
+        messagebox.showwarning(title="Error", message="No Data File Found. Please add a new entry.")
+    except KeyError:
+        messagebox.showwarning(title="Error", message=f"No details for {website.title()} exists.")
+    else:
+        messagebox.showwarning(title=f"{website.title()} Password", message=f"Your {website.title()} Credentials: \nPassword: {password}\nEmail: {email}")
+    finally:
+        website_input.delete(0, END)
+        
+
 # ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
@@ -61,8 +97,8 @@ pass_label.grid(column=0, row=3)
 
 ## Inputs ##
 
-website_input = Entry(width=35, bg='white', fg="black", highlightbackground="white")
-website_input.grid(column=1, row=1, columnspan=2)
+website_input = Entry(width=21, bg='white', fg="black", highlightbackground="white")
+website_input.grid(column=1, row=1,)
 website_input.focus()
 email_input = Entry(width=35, bg='white', fg="black", highlightbackground="white")
 email_input.grid(column=1, row=2, columnspan=2)
@@ -78,5 +114,7 @@ gen_pass_button = Button(text="Gen Password", command=generate,bg='white', fg="b
 gen_pass_button.grid(column=2, row=3)
 save_button = Button(text="Add", command=save_file,bg='white', fg="black", highlightbackground="white", width=33)
 save_button.grid(column=1, row=4, columnspan=2)
+search_button = Button(text="Search", command=search,bg='white', fg="black", highlightbackground="white", width=10)
+search_button.grid(column=2, row=1)
 
 window.mainloop()

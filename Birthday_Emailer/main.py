@@ -1,9 +1,18 @@
-##################### Normal Starting Project ######################
+import datetime as dt
+import pandas as pd
 
-# 1. Update the birthdays.csv with your friends & family's details. 
-# HINT: Make sure one of the entries matches today's date for testing purposes. e.g.
-#name,email,year,month,day
-#YourName,your_own@email.com,today_year,today_month,today_day
+#--------------------------Check todays Date------------------------#
+now = dt.datetime.now()
+day = now.day
+month = now.month
+today = (month,day)
+print(today)
+#-----------------------Compare it to Birthdays---------------------#
+data = pd.read_csv('birthdays.csv')
+bdays = pd.DataFrame(data, columns=['name', 'email', 'year', 'month', 'day'])
+for days in bdays.loc():#### needs fixed
+    print(days)
+    print(bdays.loc[0]['month'])
 
 # 2. Check if today matches a birthday in the birthdays.csv
 # HINT 1: Create a tuple from today's month and day using datetime. e.g.

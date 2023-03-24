@@ -55,8 +55,8 @@ if abs(dif_percent) > .1:
         client = Client(account_sid, auth_token)
         message = client.messages.create(
                 body=article,
-                from_='+18885951128',
-                to='your number'
+                from_='',
+                to=''
             )
         print(message.status)
         print(article)
